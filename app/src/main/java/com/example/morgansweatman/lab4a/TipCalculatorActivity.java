@@ -6,8 +6,26 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.*;
 
 public class TipCalculatorActivity extends AppCompatActivity {
+    private TextView inputBill;
+    private TextView inputTipPercentage;
+    private TextView inputNumOfPeople;
+    private TextView outputResult;
+
+    public void onClick(View v) {
+        // gather variables
+        Double bill = Double.valueOf(inputBill.getText().toString());
+        Double tip = Double.valueOf(inputTipPercentage.getText().toString());
+        int party = Integer.valueOf(inputNumOfPeople.getText().toString());
+
+        // add desired tip to bill and evenly split it between party members
+        Double costPerPartyMember = (bill + (bill*(tip/100)))/party;
+
+        // display result
+        outputResult.setText(costPerPartyMember.toString());
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +42,10 @@ public class TipCalculatorActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        inputBill = findViewById(R.id.inputBill);
+        inputTipPercentage = findViewById(R.id.inputTipPercentage);
+        inputNumOfPeople = findViewById(R.id.inputNumOfPeople);
+        outputResult = findViewById(R.id.outputResult);
     }
 
 }

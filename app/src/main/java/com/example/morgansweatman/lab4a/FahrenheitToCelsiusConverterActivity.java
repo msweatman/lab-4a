@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.EditText;
 
 public class FahrenheitToCelsiusConverterActivity extends AppCompatActivity {
 
@@ -26,4 +27,35 @@ public class FahrenheitToCelsiusConverterActivity extends AppCompatActivity {
         });
     }
 
+    public void onClick(View v) {
+
+        String f = ((EditText) findViewById(R.id.inputF)).getText().toString();
+        String c = ((EditText) findViewById(R.id.inputC)).getText().toString();
+
+        // Is Fahrenheit field empty?  If so, convert from Celsius
+
+        if ( f.isEmpty() ) {
+
+            // Check Celsius field first; if it is not empty, convert to Fahrenheit
+
+            if ( !c.isEmpty() ) {
+
+                double celsius = Double.parseDouble(c);
+                double fahrenheit = ((celsius * 9 / 5) + 32);
+
+                ((EditText) findViewById(R.id.inputF)).setText( Double.toString(fahrenheit) );
+
+            }
+
+        }
+
+        // If Fahrenheit field is not empty, convert to Celsius
+
+        else {
+            double fahrenheit = Double.parseDouble(f);
+            double celsius = ((fahrenheit - 32) * 5 / 9);
+
+            ((EditText) findViewById(R.id.inputC)).setText( Double.toString(celsius) );
+        }
+    }
 }

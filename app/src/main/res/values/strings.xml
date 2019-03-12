@@ -11,4 +11,13 @@
     <string name="title_activity_fahrenheit_to_celsius_converter">
         FahrenheitToCelsiusConverterActivity
     </string>
+    <string name="fahrenheit">Fahrenheit</string>
+    <string name="celsius">Celsius</string>
+    <string name="convert">Convert</string>
+    <string name="total_bill">Total Bill</string>
+    <string name="tip_percentage">Tip Percentage</string>
+    <string name="number_of_people">Number Of People</string>
+    <string name="calculate">Calculate</string>
+    <string name="miles">Miles</string>
+    <string name="kilometers">Kilometers</string>
 </resources>
